@@ -1,5 +1,9 @@
 # installer for WeeWX Temperatur.nu uploader
 # Copyright 2021 Konrad Skeri Ekblad
+#
+# Modified 2026-10-23 by weewx-packages: version 0.2, removed the author
+#   e-mail address, which belonged to the author of the uploader this one
+#   is derived from.
 
 from weecfg.extension import ExtensionInstaller
 
@@ -8,12 +12,11 @@ def loader():
 
 class TemperaturNuInstaller(ExtensionInstaller):
     def __init__(self):
-        super(TemperaturNuInstaller, self).__init__(
-            version="0.1",
+        super().__init__(
+            version="0.2",
             name='temperaturnu',
             description='Upload weather data to temperatur.nu.',
             author="Konrad Skeri Ekblad",
-            author_email="mwall@users.sourceforge.net",
             restful_services='user.temperaturnu.TemperaturNu',
             config={
                 'StdRESTful': {
