@@ -1,0 +1,21 @@
+0.2 23oct2026
+* Python 3 only: removed the Python 2 imports and the WeeWX 3 syslog fallback.
+  WeeWX 4 or later is required.
+* mask the hash in the URL that WeeWX logs with debug = 2 or higher. The
+  code masked "key=", which is not a parameter of this protocol.
+* do not write the hash to the log at startup.
+* check the answer of temperatur.nu. It answers HTTP 200 also when it
+  rejects a report, so a rejected upload was logged as published.
+* do not send a record without outTemp. It produced a request with only
+  the hash.
+* default report URL is https://www.temperatur.nu/rapportera.php.
+* do not start the uploader while the hash is still the placeholder
+  TEMPERATURNU_HASH from the installer.
+* pass skip_upload on to weewx.restx.RESTThread.
+* remove the author e-mail address from the installer. It belonged to the
+  author of the uploader this one is derived from.
+* README follows the weewx-packages schema. Add smoke tests with a local
+  HTTP server.
+
+0.1 09aug2021
+* initial version by Konrad Skeri Ekblad
